@@ -170,9 +170,19 @@ btn.pack()
 
 treeview = ttk.Treeview(root, column=("RANK", "USERNAME", "SPEED"), show="headings", height=5)
 
-treeview.heading("RANK", text="RANK")
-treeview.heading("USERNAME", text="USERNAME")
-treeview.heading("SPEED", text="SPEED (10e-2)")
+# treeview.heading("RANK", text="RANK")
+# treeview.heading("USERNAME", text="USERNAME")
+# treeview.heading("SPEED", text="SPEED (10e-2)")
+# Set fixed width for each column
+treeview.column("RANK",anchor="center")
+treeview.column("USERNAME", anchor="center")
+treeview.column("SPEED", anchor="center")
+
+# Set anchor to center for each heading
+treeview.heading("RANK", text="RANK", anchor="center")
+treeview.heading("USERNAME", text="USERNAME", anchor="center")
+treeview.heading("SPEED", text="SPEED (10e-2)", anchor="center")
+
 style_tree = ttk.Style()
 style_tree.configure("Treeview.Heading", font=('Courier', 18))
 style_tree.configure('Treeview', font=("Courier", 16), rowheight=40)

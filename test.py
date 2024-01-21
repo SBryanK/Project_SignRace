@@ -145,6 +145,13 @@ def start():
         count+=1
         print(count)
 
+def on_entry_click(event):
+    if user.get("1.0", "end-1c") == 'username':
+        user.delete("1.0", "end-1c")  # delete all the text in the entry
+        user.insert("1.0", '', 'center')  # Insert blank for user input
+        user.tag_configure("center", justify = 'center')
+        user.tag_add('center', '1.0', 'end')
+
 frame_rest = Frame(root)
 frame_rest.pack()
 frame_img = Frame(root,pady=5)
@@ -159,10 +166,20 @@ lbl = Label(frame_rest, text="", font=('Courier', 24))
 lbl.config(fg="red")
 lbl.pack(pady=20)
 
+# custom_font = font.Font(family="Courier", size=22)
+# user = Text(frame_rest, width=20, height=2, font=custom_font)
+# user.insert("1.0", "username", 'center')
+# user.pack()
 custom_font = font.Font(family="Courier", size=22)
 user = Text(frame_rest, width=20, height=2, font=custom_font)
-user.insert("1.0", "username", 'center')
 user.pack()
+# Set cursor position to the center
+user.insert("1.0", "username", 'center')
+# Align text to the center
+user.tag_configure('center', justify='center')
+user.bind("<FocusIn>", on_entry_click)
+
+
 
 custom_font2 = font.Font(family="Courier", size=20)
 btn = Button(frame_button, command=start, text="START", font=custom_font2)

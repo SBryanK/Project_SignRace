@@ -94,6 +94,17 @@ def start():
     length_word = len(word)
     count = 0
 
+    # Display "Ready, Set, Go" with a 1-second delay before launching the camera
+    lbl.config(text="Ready")
+    root.update()
+    time.sleep(1)
+    lbl.config(text="Set")
+    root.update()
+    time.sleep(1)
+    lbl.config(text="Go!")
+    root.update()
+    time.sleep(1)
+          
     lbl.config(text=word[count:])
     btn.pack_forget()  # Hide the "START" button when pressed
     printedw = []
@@ -136,9 +147,12 @@ def start():
             for item in treeview.get_children():
                 treeview.delete(item)
 
-            for rank, (_, row) in enumerate(top3.iterrows(), start=1):
+           for rank, (_, row) in enumerate(top3.iterrows(), start=1):
                 treeview.insert("", "end", values=[rank] + list(row))
             treeview.pack()
+
+            # Give 2 seconds before exiting camera page and back to tkinter board
+            time.sleep(2)
             break
 
         cv_creation(word[count], printedw)

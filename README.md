@@ -31,7 +31,7 @@ It was our first time to working with Machine Learning. We are proud of the fact
 
 **What's next for Sign Racer**
 
-We aim to implement the game for different types of sign languages that utilise some form of alphabets, such as Japanese Sign Language, British Sign Language etc. Furthermore, we could expand on ASL and have our game test on signing actual ASL words instead of a single fingerspelled word, upgrading our model to account for gestures as well.
+We aim to implement the game by expanding on the alphabets to have our game test on signing actual SGSL (Singapore Sign Lnaguage) words instead of a single fingerspelled word, thus upgrading our model to account for gestures as well.
 
 **Built With**
 - opencv
